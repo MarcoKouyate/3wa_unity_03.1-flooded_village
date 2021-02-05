@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 944e10aebc7b586428e73d1debbc6182, type: 3}
   m_Name: Crops Tile
   m_EditorClassIdentifier: 
-  type: 3
+  type: 4
   material: {fileID: 2100000, guid: e36f19b5adc502641855a480d14b062e, type: 2}

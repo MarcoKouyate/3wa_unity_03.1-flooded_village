@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 944e10aebc7b586428e73d1debbc6182, type: 3}
   m_Name: Seeds Tile
   m_EditorClassIdentifier: 
-  type: 2
+  type: 3
   material: {fileID: 2100000, guid: b4141c514bafba64d966d1db6e8cc7ec, type: 2}

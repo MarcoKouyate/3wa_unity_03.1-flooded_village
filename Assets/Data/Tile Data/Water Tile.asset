@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 944e10aebc7b586428e73d1debbc6182, type: 3}
   m_Name: Water Tile
   m_EditorClassIdentifier: 
-  type: 4
+  type: 5
   material: {fileID: 2100000, guid: a4eed025c3984884ab9aa3a9e8ff0dc9, type: 2}

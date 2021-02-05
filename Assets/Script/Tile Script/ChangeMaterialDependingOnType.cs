@@ -14,7 +14,6 @@ namespace FloodedVillage {
             _tile = GetComponent<Tile>();
             _meshRenderer = GetComponent<MeshRenderer>();
             _currentType = TileType.none;
-            UpdateTileType();
         }
 
         private void Update()

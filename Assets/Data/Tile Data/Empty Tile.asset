@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 944e10aebc7b586428e73d1debbc6182, type: 3}
   m_Name: Empty Tile
   m_EditorClassIdentifier: 
-  type: 0
+  type: 1
   material: {fileID: 2100000, guid: 251d355028bbb7f4e944ede8ef668849, type: 2}

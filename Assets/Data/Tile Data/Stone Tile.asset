@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 944e10aebc7b586428e73d1debbc6182, type: 3}
   m_Name: Stone Tile
   m_EditorClassIdentifier: 
-  type: 5
+  type: 6
   material: {fileID: 2100000, guid: b211c4db5ef16114ab263fd1c23b6aae, type: 2}

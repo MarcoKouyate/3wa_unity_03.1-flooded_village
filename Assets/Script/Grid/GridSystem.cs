@@ -64,12 +64,83 @@ namespace FloodedVillage {
             }
         }
 
-
         void OnDrawGizmos()
         {
             // Draw a yellow cube at the transform position
             Gizmos.color = Color.cyan;
             Gizmos.DrawWireCube(transform.position, transform.localScale);
+        }
+
+        private void Update()
+        {
+            if (!_pause && Time.time > _nextStepTime)
+            {
+                _nextStepTime = Time.time + _stepInterval;
+                SimulateAllTiles();
+                UpdateAllTiles();
+            }
+        }
+
+        private void UpdateAllTiles()
+        {
+            foreach (Tile tile in _tiles)
+            {
+                tile.UpdateState();
+            }
+        }
+
+        private void SimulateAllTiles()
+        {
+            for (int i = 0; i < _tiles.GetLength(0); i++)
+            {
+                for (int j = 0; j < _tiles.GetLength(1); j++)
+                {
+                    SimulateTile(i, j);
+                }
+            }
+        }
+
+        private void SimulateTile(int x, int y)
+        {
+            Tile tile = _tiles[x, y].GetComponent<Tile>();
+            tile.FloodedNeighbours = CountNeighboursWithType(TileType.water, x, y);
+        }
+
+        private int CountNeighboursWithType(TileType type, int x, int y)
+        {
+            int count = 0;
+
+            foreach (Tile neighbour in GetNeighbours(x, y))
+            {
+                count += (neighbour.type == type) ? 1 : 0;
+            }
+
+            return count;
+        }
+
+        private List<Tile> GetNeighbours(int x, int y)
+        {
+            List<Tile> neighbours = new List<Tile>();
+
+            for (int i = 0; i < _neighboursIndices.GetLength(0); i++)
+            {
+                AddNeighbourToList(neighbours, x + _neighboursIndices[i, 0], y + _neighboursIndices[i, 1]);
+            }
+
+            return neighbours;
+        }
+
+        private void AddNeighbourToList(List<Tile> neighbours, int x, int y)
+        {
+            if (IsNeighbourExist(x, y))
+            {
+                neighbours.Add(_tiles[x, y]);
+            }
+        }
+
+        private bool IsNeighbourExist(int x, int y)
+        {
+            return !(x < 0 || x >= _columns || y < 0 || y >= _rows);
         }
 
         private float _nextStepTime;
