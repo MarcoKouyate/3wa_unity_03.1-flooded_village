@@ -5,18 +5,14 @@ using UnityEngine;
 namespace FloodedVillage {
     public class GridSystem : MonoBehaviour
     {
+        [SerializeField] private GameObject _tilePrefab;
+        [SerializeField] private GameState _gameState;
         [SerializeField] private int _rows;
         [SerializeField] private int _columns;
-        [SerializeField] private GameObject _tilePrefab;
         [SerializeField] private float _stepInterval;
-        [SerializeField] private bool _pause;
 
-        public bool Pause
-        {
-            get => _pause;
-            set => _pause = value;
-        }
 
+        #region Init
         private void Awake()
         {
             Init();
@@ -57,17 +53,38 @@ namespace FloodedVillage {
                 }
             }
         }
+        #endregion
 
+        #region Public Methods
+
+        public int CountTileOfType(TileType type)
+        {
+            int count = 0;
+
+            foreach (Tile tile in _tiles)
+            {
+                count += (tile.type == type) ? 1 : 0;
+            }
+
+            return count;
+        }
+
+        #endregion
+
+        #region Guizmo
         void OnDrawGizmos()
         {
             // Draw a yellow cube at the transform position
             Gizmos.color = Color.cyan;
             Gizmos.DrawWireCube(transform.position, transform.localScale);
         }
+        #endregion
+
+        #region Update
 
         private void Update()
         {
-            if (!_pause && Time.time > _nextStepTime)
+            if (!_gameState.pause && Time.time > _nextStepTime)
             {
                 _nextStepTime = Time.time + _stepInterval;
                 SimulateAllTiles();
@@ -100,6 +117,9 @@ namespace FloodedVillage {
             tile.FloodedNeighbours = CountNeighboursWithType(TileType.water, x, y);
         }
 
+        #endregion
+
+        # region Utility
         private int CountNeighboursWithType(TileType type, int x, int y)
         {
             int count = 0;
@@ -136,6 +156,7 @@ namespace FloodedVillage {
         {
             return !(x < 0 || x >= _columns || y < 0 || y >= _rows);
         }
+        #endregion
 
         private float _nextStepTime;
         private int[,] _neighboursIndices;

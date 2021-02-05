@@ -47,8 +47,6 @@ namespace FloodedVillage
         }
 
         private int _floodedNeighbours;
-
-
     }
 }
 
