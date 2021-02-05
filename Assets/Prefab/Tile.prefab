@@ -121,3 +121,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c8d3177bb35c7c4cb74b7febb9c4b00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  types:
+  - {fileID: 11400000, guid: 579a963642c056e4e875f4ede01dc9e5, type: 2}
+  - {fileID: 11400000, guid: 2c03859cee4e95c46a8ce76ad970b4e2, type: 2}
+  - {fileID: 11400000, guid: f56ffb91b2d2a1a40bd1674391366edf, type: 2}
+  - {fileID: 11400000, guid: 16e27eca29e2f6e43b7e51cab4d81cc8, type: 2}
+  - {fileID: 11400000, guid: 0c8a279d0de35f94f802749e951403ab, type: 2}
+  - {fileID: 11400000, guid: 7954dc4cd7c69de4fb288a049e92960b, type: 2}
