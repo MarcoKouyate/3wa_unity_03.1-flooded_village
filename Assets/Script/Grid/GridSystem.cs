@@ -31,17 +31,11 @@ namespace FloodedVillage {
             _tiles = new Tile[_columns, _rows];
             _transform = transform;
 
-            _neighboursIndices = new int[8, 2] {
-                {-1,-1},
+            _neighboursIndices = new int[4, 2] {
                 {-1, 0},
-                {-1, 1},
-
                 { 0,-1},
                 { 0, 1},
-
-                { 1,-1},
-                { 1, 0},
-                { 1, 1}
+                { 1, 0}
             };
         }
 

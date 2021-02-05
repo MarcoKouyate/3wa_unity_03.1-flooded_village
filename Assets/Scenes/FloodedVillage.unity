@@ -251,5 +251,5 @@ MonoBehaviour:
   _columns: 8
   _tilePrefab: {fileID: 8424852631233699897, guid: 3550781359d0f40488a1149de81dcddd,
     type: 3}
-  _stepInterval: 1
+  _stepInterval: 0.5
   _pause: 0
